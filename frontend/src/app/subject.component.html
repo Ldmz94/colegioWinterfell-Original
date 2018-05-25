@@ -1,0 +1,12 @@
+<mat-toolbar>
+<mat-card-header>
+        <mat-card-title>
+            <h4>
+                Materias
+            </h4>
+        </mat-card-title>
+    </mat-card-header>
+</mat-toolbar>
+<div *ngFor = "let Subject of apiService.subjects">
+    <mat-card [routerLink] = "['/feature', Subject._id]" style=" cursor: pointer">{{Subject.subjectName}}</mat-card>
+</div>

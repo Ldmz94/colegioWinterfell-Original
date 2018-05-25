@@ -1,0 +1,26 @@
+<mat-toolbar>
+    <mat-card-header>
+        <mat-card-title>
+            <h4>
+                Tareas
+            </h4>
+        </mat-card-title>
+    </mat-card-header>
+</mat-toolbar>
+<mat-card>
+    <div>
+        <div></div>
+    <mat-card-content>
+        <mat-list>
+                    <div *ngFor = "let task of apiService.subject.tasks" >
+                        <mat-card style=" cursor: pointer" >
+                            <a (click)="openDialog(task,apiService.subject)">{{task.taskName}} ,
+                                {{task.date}} 
+                            </a>
+                        </mat-card>
+                    </div>
+                
+        </mat-list>
+    </mat-card-content>
+    </div>
+</mat-card>
