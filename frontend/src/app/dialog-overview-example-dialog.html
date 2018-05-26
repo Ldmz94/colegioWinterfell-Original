@@ -1,17 +1,22 @@
 <mat-list role="list">
-    <mat-list-item role ="listitem">{{data.task.taskName}}</mat-list-item>
-    <mat-list-item role ="listitem">{{data.task.date}}</mat-list-item>
-    <mat-list-item role ="listitem">{{data.task.description}}</mat-list-item>
-    <mat-list-item role ="listitem">{{data.task.archivo}}</mat-list-item>
+    <mat-list-item role ="listitem">Nombre: {{data.task.taskName}}</mat-list-item>
+    <mat-list-item role ="listitem">Descripcion: {{data.task.description}}</mat-list-item>
+    <mat-list-item role ="listitem | linky">Link de apoyo: 
+      <a href> 
+        {{data.task.archivo}} 
+      </a>
+    </mat-list-item>
+    
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" value={{data.task.date}} placeholder disabled="Ver fecha">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
   <section class="example-section">
     <mat-checkbox class="example-margin" [(ngModel)]="data.task.Completada">Terminada</mat-checkbox>
   </section>  
 </mat-list>
-<mat-form-field>
-    <input matInput [matDatepicker]="picker"  placeholder="Choose a date">
-    <mat-datepicker-toggle matSuffix [for]="picker" placeholder="{{data.task.date}}"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
+
   
 
 <div mat-dialog-actions>

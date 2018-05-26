@@ -1,4 +1,4 @@
-<mat-toolbar>
+<mat-toolbar color ="primary">
     <mat-card-header>
         <mat-card-title>
             <h4>
@@ -14,8 +14,8 @@
         <mat-list>
                     <div *ngFor = "let task of apiService.subject.tasks" >
                         <mat-card style=" cursor: pointer" >
-                            <a (click)="openDialog(task,apiService.subject)">{{task.taskName}} ,
-                                {{task.date}} 
+                            <a (click)="openDialog(task,apiService.subject)">{{task.taskName}} 
+                             <a style="margin-left: 80%;">{{task.date}}</a>    
                             </a>
                         </mat-card>
                     </div>

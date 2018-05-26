@@ -12,7 +12,9 @@ import {
   MatDialogModule,
   MatCheckboxModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatSelectModule,
+  MatOptionModule
 } from '@angular/material';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
@@ -49,7 +51,9 @@ const routes= [
     FormsModule,
     ReactiveFormsModule,
     MatDatepickerModule, 
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSelectModule,
+    MatOptionModule
   ],
   entryComponents: [FeatureComponent, DialogOverviewExampleDialog],
   providers: [
