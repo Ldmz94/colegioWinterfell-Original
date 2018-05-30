@@ -1,5 +1,7 @@
-var express = require('express')
 //Cors es una biblioteca que permite que las URLs "coincidan "
+//Utilizamos express para el facil manejo de Node.js, Mongoose para la conexión con la base de datos
+
+var express = require('express')
 var cors = require('cors')
 var bodyParser = require('body-parser')
 var app = express();
@@ -21,6 +23,8 @@ app.get('/posts', (req,res)=>{
     res.send(posts)
 })
 
+//Llega la solicitud y este busca en la base de datos lo que haya con respecto a las materias. Se podrán ver los datos en
+//localhost:3000/subjects
 app.get('/subjects', async (req,res)=>{
     try {
         var subjects = await Subject.find({}, '-__v')
@@ -32,7 +36,8 @@ app.get('/subjects', async (req,res)=>{
     
 })
 
-
+//Llega la solicitud y este busa en la base de datos lo que haya con respecto a las tareas, además de agregar el id
+//de la materia a la URL para diferenciarla. Los datos se podrán ver en localhost:3000/features/"El id de la materia"
 app.get('/features/:id', async (req,res)=>{
     console.log(req.params)
     try {
@@ -61,7 +66,7 @@ app.post('/subjects', (req,res)=>{
     
 })
 
-
+//Se utiliza para la actualización de tareas en la base de datos
 app.post('/taskUpdate', (req,res)=>{
     var subjectId = req.body;
     var subject = new Subject(subjectInfo)
