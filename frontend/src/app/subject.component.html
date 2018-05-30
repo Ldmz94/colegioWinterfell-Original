@@ -7,6 +7,8 @@
         </mat-card-title>
     </mat-card-header>
 </mat-toolbar>
+<!--Recorremos las materias que se encuentren y mostramos solamente su nombre, además se añade un botón 
+que cuando sea presionado va a redireccionar a las tareas que tenga esa materia-->
 <div *ngFor = "let Subject of apiService.subjects">
     <mat-card [routerLink] = "['/feature', Subject._id]" style=" cursor: pointer">{{Subject.subjectName}}</mat-card>
 </div>

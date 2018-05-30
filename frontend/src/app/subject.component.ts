@@ -8,7 +8,7 @@ import {ApiService} from './api.service'
 })
 
 export class SubjectComponent {
-
+  //A continuación tenemos el constructor y su única inyección la cual es ApiService
   Subject : string
   constructor(private apiService: ApiService){}
 

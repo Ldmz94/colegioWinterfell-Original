@@ -31,10 +31,15 @@ const routes= [
   
 ]
 
+//En las declaraciones indicamos los componentes que se están usando para este caso de uso
+//MessagesComponent no se debe tener en cuenta ya que es un módulo para pruebas de conexión
+
 @NgModule({
   declarations: [
     AppComponent, MessagesComponent, SubjectComponent, FeatureComponent, DialogOverviewExampleDialog
   ],
+  //Las importaciones que se ven a continuación son las necesarias para la interfaz, todas estas importaciones
+  //vienen desde angular material
   imports: [
     BrowserModule,
     HttpModule,

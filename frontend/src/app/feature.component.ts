@@ -11,6 +11,8 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 export class FeatureComponent {
   subjectId: string;
+  //A continuación se muestra el constructor y las inyecciones que se están haciendo las cuales son
+  //ApiService, ActivatedRoute, Router y MatDialog
   constructor(public apiService: ApiService, private activatedRoute: ActivatedRoute, private Router: Router, public dialog: MatDialog ){
     let va = this.activatedRoute.params.subscribe(params=>{
       this.subjectId = params.id;
@@ -20,7 +22,8 @@ export class FeatureComponent {
     this.apiService.getTasks(this.subjectId);
     //console.log(this.apiService.tasks);
   }
-
+  //Se va a encargar de abrir la ventana donde se muestran las características de la tarea, 
+  //se utiliza DialogOverviewExample
   openDialog(task,subject): void {
     console.log("tarea",task)
     let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {

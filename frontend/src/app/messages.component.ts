@@ -8,7 +8,7 @@ import {ApiService} from './api.service'
   </div>
   `
 })
-
+//Solo para pruebas de conexión y de mostrar mensajes
 export class MessagesComponent {
 
   constructor( private apiService: ApiService){}
