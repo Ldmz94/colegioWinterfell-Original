@@ -38,7 +38,7 @@ export class TaskFeature {
   templateUrl: 'dialog-overview-example-dialog.html',
 })
 export class DialogOverviewExampleDialog {
-
+  
   constructor(
     public dialogRef: MatDialogRef<DialogOverviewExampleDialog>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
@@ -48,4 +48,5 @@ export class DialogOverviewExampleDialog {
   }
 
 }
+
 
