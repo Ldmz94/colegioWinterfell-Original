@@ -24,11 +24,14 @@ app.get('/posts', (req,res)=>{
 })
 
 //Llega la solicitud y este busca en la base de datos lo que haya con respecto a las materias. Se podrán ver los datos en
-//localhost:3000/subjects
+//localhost:3000/subjects "courses":{"courseName":"a"}
 app.get('/subjects', async (req,res)=>{
     try {
-        var subjects = await Subject.find({}, '-__v')
-        res.send(subjects)    
+        var subjects = await Subject.find({$and:[{"gradeName":"8"},{"courses.courseName":"a"}]},{"courses.subjects":1})
+        var cliente = new Object();
+        cliente = JSON.parse(JSON.stringify(subjects[0]))
+        //console.log(cliente.courses[0].subjects)
+        res.send(cliente.courses[0].subjects)    
     } catch (error) {
         console.error(error)
         res.sendStatus(500)
@@ -40,9 +43,19 @@ app.get('/subjects', async (req,res)=>{
 //de la materia a la URL para diferenciarla. Los datos se podrán ver en localhost:3000/features/"El id de la materia"
 app.get('/features/:id', async (req,res)=>{
     console.log(req.params)
+  
     try {
-      var subject = await Subject.findById(req.params.id, '-__v')
-        res.send(subject)    
+      var subjects = await Subject.find({$and:[{"gradeName":"8"},{"courses.courseName":"a"}]},{"courses.subjects":1})
+      var cliente = new Object();
+      cliente = JSON.parse(JSON.stringify(subjects[0])).courses[0].subjects;
+      //console.log(cliente.courses[0].subjects)
+      cliente.forEach(element => {
+          if(element._id == req.params.id){
+            res.send(element);
+          }
+      });
+      
+        
     } catch (error) {
       console.error(error)
         res.sendStatus(200)
