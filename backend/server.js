@@ -8,6 +8,7 @@ var app = express();
 var mongooose = require('mongoose')
 
 var Subject = require('./models/Subject.js')
+var Grade = require('./models/grade.js')
 
 mongooose.Promise = Promise
 
@@ -91,6 +92,18 @@ app.post('/taskUpdate', (req,res)=>{
         res.sendStatus(200)
     })
 
+})
+
+app.get('/grades', async (req,res)=>{
+    try {
+        var grades = await Subject.find({}, '-courses -subjectName -tasks -_id')
+        res.send(grades)    
+    } catch (error) {
+        console.error(error)
+        sendStatus(500)
+    }
+    
+    
 })
 
 

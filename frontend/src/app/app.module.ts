@@ -24,11 +24,11 @@ import {MessagesComponent} from './messages.component'
 import {SubjectComponent} from './subject.component'
 import {FeatureComponent,DialogOverviewExampleDialog} from './feature.component'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
-
+import {GradesComponent} from './grades.component'
 const routes= [
   {path: 'subjects', component: SubjectComponent},
   {path: 'feature/:id', component: FeatureComponent},
-  
+  {path: 'grades', component: GradesComponent}
 ]
 
 //En las declaraciones indicamos los componentes que se están usando para este caso de uso
@@ -36,7 +36,12 @@ const routes= [
 
 @NgModule({
   declarations: [
-    AppComponent, MessagesComponent, SubjectComponent, FeatureComponent, DialogOverviewExampleDialog
+    AppComponent, 
+    MessagesComponent, 
+    SubjectComponent, 
+    FeatureComponent, 
+    DialogOverviewExampleDialog, 
+    GradesComponent
   ],
   //Las importaciones que se ven a continuación son las necesarias para la interfaz, todas estas importaciones
   //vienen desde angular material
