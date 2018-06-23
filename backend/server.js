@@ -39,7 +39,7 @@ app.get('/subjects', async (req,res)=>{
     }
     
 })
-
+//Llega la solicitud y este busca los cursos, A, B o C, y busca las materias de estos cursos 
 app.get('/aboutGrades', async (req,res)=>{
     try {
         var subjects = await Subject.find({$and:[{"gradeName":"8"},{"courses.courseName":"a"}]},{"courses.subjects":1})
@@ -107,7 +107,7 @@ app.post('/taskUpdate', (req,res)=>{
     })
 
 })
-
+//Llega la solicitud a la base de datos y esta nos va a permitir ver una lista de todos los grados del colegio
 app.get('/grades', async (req,res)=>{
     try {
         var grades = await Subject.find({}, '-courses -subjectName -tasks -_id')
