@@ -4,7 +4,7 @@ import {ApiService} from './api.service'
   selector: 'messages',
   template: `
    <div *ngFor="let grade of apiService.grades">
-  <mat-card>{{grade.gradeName}}</mat-card>
+  <mat-card [routerLink] = "['/aboutGrades']" style= "cursor:pointer">{{grade.gradeName}}</mat-card>
   </div>
   `
 })

@@ -40,6 +40,20 @@ app.get('/subjects', async (req,res)=>{
     
 })
 
+app.get('/aboutGrades', async (req,res)=>{
+    try {
+        var subjects = await Subject.find({$and:[{"gradeName":"8"},{"courses.courseName":"a"}]},{"courses.subjects":1})
+        var cliente = new Object();
+        cliente = JSON.parse(JSON.stringify(subjects[0]))
+        //console.log(cliente.courses[0].subjects)
+        res.send(cliente.courses[0].subjects)    
+    } catch (error) {
+        console.error(error)
+        res.sendStatus(500)
+    }
+    
+})
+
 //Llega la solicitud y este busa en la base de datos lo que haya con respecto a las tareas, además de agregar el id
 //de la materia a la URL para diferenciarla. Los datos se podrán ver en localhost:3000/features/"El id de la materia"
 app.get('/features/:id', async (req,res)=>{

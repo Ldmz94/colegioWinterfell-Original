@@ -1,0 +1,59 @@
+<mat-toolbar color="primary">
+    <mat-card-header>
+        <mat-card-title>
+            <h4>
+                Agregar Tareas
+            </h4>
+        </mat-card-title>
+    </mat-card-header>
+</mat-toolbar>
+
+
+<div class="example-container">
+    <mat-card>
+        <mat-form-field>
+            <mat-select placeholder="Curso">
+                <mat-option value="option">A</mat-option>
+                <mat-option value="option">B</mat-option>
+                <mat-option value="option">C</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-card>
+
+    <mat-card>
+        <mat-form-field>
+            <mat-select placeholder="Materia">
+                <mat-option value="option">Ciencias Naturales</mat-option>
+                <mat-option value="option">Ciencias Sociales</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-card>
+    <mat-card>
+        <mat-form-field>
+            <input matInput placeholder="Nombre">
+        </mat-form-field>
+    </mat-card>
+
+    <mat-card>
+        <mat-form-field>
+            <input matInput placeholder="Descripción">
+        </mat-form-field>
+    </mat-card>
+
+    <mat-card>
+        <mat-form-field>
+            <input matInput placeholder="Enlace de apoyo">
+        </mat-form-field>
+    </mat-card>
+    <mat-card>
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Elegir una fecha">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </mat-card>
+    <mat-card>
+        <button mat-raised-button onClick = 'alert("Éxito al agregar")'>Agregar Tarea!</button>
+        
+    </mat-card>
+</div>
