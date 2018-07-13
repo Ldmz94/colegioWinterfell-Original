@@ -9,6 +9,8 @@
   "author": "Winterfell",
   "license": "ISC",
   "dependencies": {
+    "@angular-devkit/build-angular": "^0.6.8",
+    "angular": "^1.7.2",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
     "express": "^4.16.3",

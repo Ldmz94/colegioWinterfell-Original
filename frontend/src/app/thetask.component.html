@@ -13,7 +13,7 @@
     <form>
         <mat-card>
             <mat-form-field>
-                <mat-select placeholder="Materia" [(ngModel)]="subjectName" name="subject">
+                <mat-select placeholder="Materia" [(ngModel)]="subjectName" name="subject" required>
                     <mat-option>-- Ninguno --</mat-option>
                     <mat-optgroup *ngFor="let course of apiService.courses" [label]="'Curso '+ course.courseName" [disabled]="false">
                         <mat-option *ngFor="let subject of course.subjects" [value]="course.courseName+'>'+subject.subjectName">
@@ -25,13 +25,13 @@
         </mat-card>
         <mat-card>
             <mat-form-field>
-                <input matInput placeholder="Nombre" [(ngModel)]="taskData.taskName" name="taskName">
+                <input matInput placeholder="Nombre" [(ngModel)]="taskData.taskName" name="taskName" required>
             </mat-form-field>
         </mat-card>
 
         <mat-card>
             <mat-form-field>
-                <input matInput placeholder="Descripción" [(ngModel)]="taskData.description" name="description">
+                <input matInput placeholder="Descripción" [(ngModel)]="taskData.description" name="description" required>
             </mat-form-field>
         </mat-card>
 
@@ -42,13 +42,14 @@
         </mat-card>
         <mat-card>
             <mat-form-field>
-                <input matInput [matDatepicker]="picker" placeholder="Elegir una fecha" [(ngModel)]="taskData.date" name="date">
+                <input matInput [min]="minDate" [matDatepicker]="picker" placeholder="Elegir una fecha" [(ngModel)]="taskData.date" name="date" required >
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
+
             </mat-form-field>
         </mat-card>
         <mat-card>
-            <button mat-raised-button (click)="post()">Agregar Tarea</button>
+            <button mat-raised-button (click)="post()" >Agregar Tarea</button>
         </mat-card>
         <p>{{taskLabel}}</p>
     </form>
