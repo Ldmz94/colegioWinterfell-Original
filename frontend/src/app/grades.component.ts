@@ -5,7 +5,7 @@ import {ApiService} from './api.service'
   //Muestra la lista de los grados en el colegio
   template: `
    <div *ngFor="let grade of apiService.grades">
-  <mat-card [routerLink] = "['/aboutGrades']" style= "cursor:pointer">{{grade.gradeName}}</mat-card>
+  <mat-card [routerLink] = "['/aboutGrades/'+grade.gradeName]" style= "cursor:pointer">{{grade.gradeName}}</mat-card>
   </div>
   `
 })

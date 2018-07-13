@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {RouterModule} from '@angular/router';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from "@angular/common/http";
+import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {
   MatButtonModule, 
   MatCardModule,
@@ -28,9 +30,9 @@ import {GradesComponent} from './grades.component'
 import { theTaskComponent } from './thetask.component';
 const routes= [
   {path: 'subjects', component: SubjectComponent},
-  {path: 'feature/:id', component: FeatureComponent},
+  {path: 'feature', component: FeatureComponent},
   {path: 'grades', component: GradesComponent},
-  {path: 'aboutGrades', component: theTaskComponent}
+  {path: 'aboutGrades/:id', component: theTaskComponent}
 ]
 
 //En las declaraciones indicamos los componentes que se están usando para este caso de uso
@@ -52,6 +54,7 @@ const routes= [
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     MatButtonModule,
     MatCardModule,
     MatToolbarModule,
@@ -71,7 +74,8 @@ const routes= [
   ],
   entryComponents: [FeatureComponent, DialogOverviewExampleDialog],
   providers: [
-    ApiService
+    ApiService,
+    [Location, {provide: LocationStrategy, useClass: PathLocationStrategy}]
   ],
   bootstrap: [AppComponent]
 })

@@ -10,50 +10,46 @@
 
 
 <div class="example-container">
-    <mat-card>
-        <mat-form-field>
-            <mat-select placeholder="Curso">
-                <mat-option value="option">A</mat-option>
-                <mat-option value="option">B</mat-option>
-                <mat-option value="option">C</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </mat-card>
+    <form>
+        <mat-card>
+            <mat-form-field>
+                <mat-select placeholder="Materia" [(ngModel)]="subjectName" name="subject">
+                    <mat-option>-- Ninguno --</mat-option>
+                    <mat-optgroup *ngFor="let course of apiService.courses" [label]="'Curso '+ course.courseName" [disabled]="false">
+                        <mat-option *ngFor="let subject of course.subjects" [value]="course.courseName+'>'+subject.subjectName">
+                            {{subject.subjectName}}
+                        </mat-option>
+                    </mat-optgroup>
+                </mat-select>
+            </mat-form-field>
+        </mat-card>
+        <mat-card>
+            <mat-form-field>
+                <input matInput placeholder="Nombre" [(ngModel)]="taskData.taskName" name="taskName">
+            </mat-form-field>
+        </mat-card>
 
-    <mat-card>
-        <mat-form-field>
-            <mat-select placeholder="Materia">
-                <mat-option value="option">Ciencias Naturales</mat-option>
-                <mat-option value="option">Ciencias Sociales</mat-option>
-            </mat-select>
-        </mat-form-field>
-    </mat-card>
-    <mat-card>
-        <mat-form-field>
-            <input matInput placeholder="Nombre">
-        </mat-form-field>
-    </mat-card>
+        <mat-card>
+            <mat-form-field>
+                <input matInput placeholder="Descripción" [(ngModel)]="taskData.description" name="description">
+            </mat-form-field>
+        </mat-card>
 
-    <mat-card>
-        <mat-form-field>
-            <input matInput placeholder="Descripción">
-        </mat-form-field>
-    </mat-card>
-
-    <mat-card>
-        <mat-form-field>
-            <input matInput placeholder="Enlace de apoyo">
-        </mat-form-field>
-    </mat-card>
-    <mat-card>
-        <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Elegir una fecha">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-    </mat-card>
-    <mat-card>
-        <button mat-raised-button onClick = 'alert("Éxito al agregar")'>Agregar Tarea!</button>
-        
-    </mat-card>
+        <mat-card>
+            <mat-form-field>
+                <input matInput placeholder="Enlace de apoyo" [(ngModel)]="taskData.archivo" name="archivo">
+            </mat-form-field>
+        </mat-card>
+        <mat-card>
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Elegir una fecha" [(ngModel)]="taskData.date" name="date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </mat-card>
+        <mat-card>
+            <button mat-raised-button (click)="post()">Agregar Tarea</button>
+        </mat-card>
+        <p>{{taskLabel}}</p>
+    </form>
 </div>

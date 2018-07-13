@@ -1,5 +1,5 @@
-<mat-toolbar color ="primary">
-<mat-card-header>
+<mat-toolbar color="primary">
+    <mat-card-header>
         <mat-card-title>
             <h4>
                 Materias
@@ -9,6 +9,13 @@
 </mat-toolbar>
 <!--Recorremos las materias que se encuentren y mostramos solamente su nombre, además se añade un botón 
 que cuando sea presionado va a redireccionar a las tareas que tenga esa materia-->
-<div *ngFor = "let Subject of apiService.subjects">
-    <mat-card [routerLink] = "['/feature', Subject._id]" style=" cursor: pointer">{{Subject.subjectName}}</mat-card>
+<div *ngFor="let grade of apiService.subjects">
+    <mat-card>{{grade.gradeName}}</mat-card>
+    <div *ngFor="let course of grade.courses">
+        <mat-card>{{course.courseName}}</mat-card>
+        <div *ngFor="let Subject of course.subjects">
+            <mat-card (click)= "seeTasks(grade.gradeName, course.courseName, Subject._id)" style=" cursor: pointer">{{Subject.subjectName}}</mat-card>
+        </div>
+    </div>
+
 </div>

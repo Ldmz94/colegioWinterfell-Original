@@ -14,12 +14,12 @@ export class FeatureComponent {
   //A continuación se muestra el constructor y las inyecciones que se están haciendo las cuales son
   //ApiService, ActivatedRoute, Router y MatDialog
   constructor(public apiService: ApiService, private activatedRoute: ActivatedRoute, private Router: Router, public dialog: MatDialog ){
-    let va = this.activatedRoute.params.subscribe(params=>{
+    /*let va = this.activatedRoute.params.subscribe(params=>{
       this.subjectId = params.id;
       
-    })
+    })*/
 
-    this.apiService.getTasks(this.subjectId);
+    this.apiService.getTasks();
     //console.log(this.apiService.tasks);
   }
   //Se va a encargar de abrir la ventana donde se muestran las características de la tarea, 
