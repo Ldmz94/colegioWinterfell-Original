@@ -28,11 +28,13 @@ import {FeatureComponent,DialogOverviewExampleDialog} from './feature.component'
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import {GradesComponent} from './grades.component'
 import { theTaskComponent } from './thetask.component';
+import { gameUploadComponent } from './gameUpload.component';
 const routes= [
   {path: 'subjects', component: SubjectComponent},
   {path: 'feature', component: FeatureComponent},
   {path: 'grades', component: GradesComponent},
-  {path: 'aboutGrades/:id', component: theTaskComponent}
+  {path: 'aboutGrades/:id', component: theTaskComponent},
+  {path: 'uploadImages', component: gameUploadComponent}
 ]
 
 //En las declaraciones indicamos los componentes que se están usando para este caso de uso
@@ -46,8 +48,9 @@ const routes= [
     FeatureComponent, 
     DialogOverviewExampleDialog, 
     GradesComponent,
-    theTaskComponent
-
+    theTaskComponent,
+    gameUploadComponent
+    
   ],
   //Las importaciones que se ven a continuación son las necesarias para la interfaz, todas estas importaciones
   //vienen desde angular material
@@ -70,7 +73,8 @@ const routes= [
     MatDatepickerModule, 
     MatNativeDateModule,
     MatSelectModule,
-    MatOptionModule
+    MatOptionModule,
+    
   ],
   entryComponents: [FeatureComponent, DialogOverviewExampleDialog],
   providers: [

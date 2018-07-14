@@ -1,0 +1,16 @@
+<mat-toolbar>
+    <h1>Subir Imagen</h1>
+</mat-toolbar>
+<mat-card>
+    <div>
+            <div>
+                <input mat-input type="file" (change)="onFileSelected($event)">
+            </div>
+        <div>
+            <mat-form-field>
+                <input matInput placeholder="Nombre" name="name" required>
+            </mat-form-field>
+        </div>
+    </div>
+    <button mat-raised-button (click) = "upload()">Subir Imagen</button>
+</mat-card>

@@ -9,6 +9,7 @@ var mongooose = require('mongoose')
 
 var Subject = require('./models/Subject.js')
 var Grade = require('./models/grade.js')
+var Image = require('./models/image.js')
 
 mongooose.Promise = Promise
 
@@ -20,9 +21,13 @@ var posts = [
 app.use(cors())
 app.use(bodyParser.json())
 
+
 app.get('/posts', (req, res) => {
+    
     res.send(posts)
 })
+
+
 
 //Llega la solicitud y este busca en la base de datos lo que haya con respecto a las materias. Se podrán ver los datos en
 //localhost:3000/subjects "courses":{"courseName":"a"}
@@ -204,6 +209,21 @@ app.post('/addTask', async (req, res) => {
             console.log("Yai")
             res.status(200).send({ msg: "ok" });
         })
+})
+
+app.post('/uploadImages', (req, res)=>{
+    var imageData = req.body;
+
+    var image = new Image(imageData)
+    image.save((err,result) =>{
+        if(err){
+            console.log(err)
+        }
+        res.sendStatus(200)
+    })
+
+    console.log(imageData.name)
+    res.sendStatus(200)
 })
 
 mongooose.connect('mongodb://Administrator:admon@ds123976.mlab.com:23976/colegiowinterfell', (err) => {
