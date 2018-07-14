@@ -79,7 +79,8 @@ export class ApiService {
             console.log(this.subject)
         });
     }
-
+//Indicamos cual es la URL con la que nos vamos a comunicar, de aquí se van a estar obteniendo los datos de las imágenes
+//Los cuales va a permitir mostrarlas
     getImages() {
         this.http.get('http://localhost:3000/images').subscribe(res => {
             this.images = res.json()

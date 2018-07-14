@@ -22,7 +22,8 @@ export class gameUploadComponent {
         this.selectedFile = <File>event.target.files[0];
         console.log(event)
     }
-
+    //Método en angular para subir las imágenes, más adelante este se comunicacrá con la ruta específicada para 
+    //poder realizar la conexión
     upload() {
         const fd = new FormData();
         fd.append('image',this.selectedFile, this.selectedFile.name)

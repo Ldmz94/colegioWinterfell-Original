@@ -4,7 +4,7 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http'
 
-
+//Esta clase nos va a permitir ver las imágenes que están en la base de datos
 @Component({
     selector: 'messages',
     templateUrl: './seeImage.component.html',
