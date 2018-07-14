@@ -9,6 +9,7 @@ export class ApiService {
     messages = []
     subjects = []
     grades = []
+    images = []
     taskFeature = {}
     subject: any = [];
     courses: any = []
@@ -79,5 +80,11 @@ export class ApiService {
         });
     }
 
+    getImages() {
+        this.http.get('http://localhost:3000/images').subscribe(res => {
+            this.images = res.json()
+            console.log(this.subjects);
+        })
+    }
 
 }

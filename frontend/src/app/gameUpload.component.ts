@@ -13,18 +13,23 @@ import { HttpClient } from '@angular/common/http'
 
 
 export class gameUploadComponent {
-
+    selectedFile: File = null
     constructor(private http: HttpClient) {
 
     }
 
-    selectedFile = null;
     onFileSelected(event) {
-        this.selectedFile = event.target.files[0];
+        this.selectedFile = <File>event.target.files[0];
         console.log(event)
     }
 
     upload() {
-
+        const fd = new FormData();
+        fd.append('image',this.selectedFile, this.selectedFile.name)
+        this.http.post('http://localhost:3000/uploadImages', fd).subscribe(
+            res=>{
+                console.log(res);
+            }
+        )
     }
 }

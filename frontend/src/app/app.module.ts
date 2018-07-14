@@ -29,12 +29,14 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import {GradesComponent} from './grades.component'
 import { theTaskComponent } from './thetask.component';
 import { gameUploadComponent } from './gameUpload.component';
+import { seeImageComponent } from './seeImage.component';
 const routes= [
   {path: 'subjects', component: SubjectComponent},
   {path: 'feature', component: FeatureComponent},
   {path: 'grades', component: GradesComponent},
   {path: 'aboutGrades/:id', component: theTaskComponent},
-  {path: 'uploadImages', component: gameUploadComponent}
+  {path: 'uploadImages', component: gameUploadComponent},
+  {path: 'images', component: seeImageComponent}
 ]
 
 //En las declaraciones indicamos los componentes que se están usando para este caso de uso
@@ -49,8 +51,9 @@ const routes= [
     DialogOverviewExampleDialog, 
     GradesComponent,
     theTaskComponent,
-    gameUploadComponent
-    
+    gameUploadComponent,
+    seeImageComponent
+
   ],
   //Las importaciones que se ven a continuación son las necesarias para la interfaz, todas estas importaciones
   //vienen desde angular material

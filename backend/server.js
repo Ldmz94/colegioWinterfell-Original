@@ -226,6 +226,38 @@ app.post('/uploadImages', (req, res)=>{
     res.sendStatus(200)
 })
 
+exports.Uploads = function(req, res) {
+    console.log(req.files);
+    var tmp_path = req.files.photo.path;
+    // Ruta donde colocaremos las imagenes
+    var target_path = './public/images/' + req.files.photo.name;
+   // Comprobamos que el fichero es de tipo imagen
+    if (req.files.photo.type.indexOf('image')==-1){
+                res.send('El fichero que deseas subir no es una imagen');
+    } else {
+         // Movemos el fichero temporal tmp_path al directorio que hemos elegido en target_path
+        fs.rename(tmp_path, target_path, function(err) {
+            if (err) throw err;
+            // Eliminamos el fichero temporal
+            fs.unlink(tmp_path, function() {
+                if (err) throw err;
+                res.render('upload',{message: '/images/' + req.files.photo.name,title: ''});
+            });
+         });
+     }
+};
+app.get('/images', async (req, res) => {
+
+    try {
+        var images = await Image.find({}, '-name -__v')
+        res.send(images)    
+    } catch (error) {
+        console.error(error)
+        res.sendStatus(404)
+    }
+    
+})
+
 mongooose.connect('mongodb://Administrator:admon@ds123976.mlab.com:23976/colegiowinterfell', (err) => {
     if (!err)
         console.log('Conexión a Mongo exitosa')
