@@ -25,6 +25,7 @@ export class theTaskComponent {
     this.apiService.getCourses(this.gradeName);
   }
 
+  //Éste método post nos deja obtener los datos para mostrarlo en la interfaz y también realiza validaciones al momento de agregar una tarea
   post() {
     var obj = { taskData: {}, gradeName: '', courseName: '', subjectName: '' }
     let tempCourse = this.subjectName.split(">");
